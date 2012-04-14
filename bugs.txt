@@ -1,0 +1,8 @@
+    1- program closed after cutting a piece of mp3 to mp3. solved
+    2- program try to cut and take if there is nothing to cut. solved
+    3- if you press cancel after pressing "save to"button it will try to cut and then close. solved
+    4- if user try to open an unsupported format the player will not created again. solved
+    5- the font of jlist is to tiny. solved
+-------------------------------------------
+6-dispose waiting dialog after finishing because it is just hidden behind frame.
+7-no progress shown.

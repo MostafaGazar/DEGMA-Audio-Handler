@@ -1,0 +1,3 @@
+    #- ............. solved
+   *#- .............       <-worked on solve it
+   -#- .............       <-can not solve it
