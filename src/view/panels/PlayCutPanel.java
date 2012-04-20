@@ -26,10 +26,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
+
+import ui.Messages;
+import ui.NewMain;
+import ui.WaitingDialog;
 import util.ConstantMethods;
-import view.Messages;
-import view.NewMain;
-import view.WaitingDialog;
 import view.fileChooser.AudioVideoFilter;
 import view.fileChooser.ImageFileView;
 
@@ -37,8 +38,8 @@ import view.fileChooser.ImageFileView;
 //import org.eclipse.swt.widgets.FileDialog;
 //import org.eclipse.swt.widgets.Shell;
 
-import function.convert.mp3ToWav.MP3_To_WAV;
-import function.cut.CutWithNoUI;
+import function.convert.util.Mp3ToWav;
+import function.cut.FilesCutter;
 
 
 /**
@@ -345,7 +346,7 @@ public class PlayCutPanel {
 		if ("mp3".equalsIgnoreCase(ConstantMethods.getExtension(new File(
 				runningAudio)))) {// Convert to WAV to be able to cut.
 			try {
-				new MP3_To_WAV(runningAudio,
+				new Mp3ToWav(runningAudio,
 						System.getProperty("java.io.tmpdir")
 								+ Messages.getString("Constants.temp_cut"));
 			} catch (Exception e) {
@@ -380,7 +381,7 @@ public class PlayCutPanel {
 		}
 
 		try {
-			CutWithNoUI.cut(toSend);// ,holdingWd);
+			FilesCutter.cut(toSend);// ,holdingWd);
 		} catch (Exception e) {
 			JOptionPane
 					.showMessageDialog(

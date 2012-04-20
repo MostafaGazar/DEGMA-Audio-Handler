@@ -16,14 +16,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
+import ui.Messages;
+import ui.WaitingDialog;
 import util.ConstantMethods;
-import view.Messages;
-import view.WaitingDialog;
 import view.fileChooser.AudioVideoFilter;
 import view.fileChooser.ImageFileView;
 
-import function.convert.mp3ToWav.MP3_To_WAV;
-import function.convert.wavToMp3.WAV_To_MP3;
+import function.convert.util.Mp3ToWav;
+import function.convert.util.WavToMp3;
 
 import javazoom.jl.decoder.JavaLayerException;
 
@@ -234,7 +234,7 @@ public class ConvertorPanel {
 					// show the dialog
 					holdingWd.setVisible(true);
 
-					new MP3_To_WAV(source, dest);
+					new Mp3ToWav(source, dest);
 
 					JOptionPane
 							.showMessageDialog(
@@ -264,7 +264,7 @@ public class ConvertorPanel {
 					dest = dest.split(".wav")[0];
 					dest = dest + ".mp3";
 				}
-				new WAV_To_MP3(source, dest, holdingWd);
+				new WavToMp3(source, dest, holdingWd);
 
 				// holdingWd.dispose();
 			}

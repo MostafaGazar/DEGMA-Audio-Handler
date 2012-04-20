@@ -15,20 +15,16 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.convert.task;
-
 
 import javax.swing.*;
 
 import function.convert.Convert;
-import function.shared.UI.Application;
 import function.shared.music.Album;
 import function.shared.music.MP3Genre;
 import function.shared.music.Track;
+import function.shared.ui.Application;
 import function.shared.util.Pref;
-
-
 
 import util.Constants;
 
@@ -39,18 +35,13 @@ import java.util.Comparator;
 
 /**
  * Load audio files from a local directory.
+ * @edited Mostafa Gazar, eng.mostafa.gazar@gmail.com
  */
 public class LoadDirectoryTask {
-	/**
-     *
-     */
-	public LoadDirectoryTask() {
-	}
 
 	/**
-	 * Fire up the dir selection dialog and get all those wav/flac files.
+	 * Fire up the dir selection dialog and get all those wav and flac files.
 	 */
-	@SuppressWarnings("unchecked")
 	public void doTask() {
 		JFileChooser chooser = new JFileChooser();
 		File currDir = new File(Pref.getPref(Constants.BASE_DIRECTORY_KEY, ""));
@@ -121,16 +112,11 @@ public class LoadDirectoryTask {
 	}
 
 	/**
-	 * Compare track file names.
+	 * Compare tracks.
 	 */
-	@SuppressWarnings("unchecked")
-	class FileNameComparator implements Comparator {
+	class FileNameComparator implements Comparator<Object> {
 		/**
-		 * Compare two file names.
-		 * 
-		 * @param o
-		 * @param o1
-		 * @return
+		 * Compare two tracks.
 		 */
 		@Override
 		public int compare(Object o, Object o1) {

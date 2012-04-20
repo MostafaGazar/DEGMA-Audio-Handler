@@ -3,9 +3,9 @@ package function.rip;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
-import function.rip.MainWindow;
-import function.shared.UI.Application;
+import function.rip.RipPanel;
 import function.shared.thread.ThreadCollector;
+import function.shared.ui.Application;
 import function.shared.util.Log;
 
 
@@ -20,7 +20,7 @@ public class Rip extends Application {
 	private static final long serialVersionUID = 666L;
 	private ThreadCollector aThreads = new ThreadCollector();
 	private static Rip aaRipper;
-	private MainWindow aMainWindow = null;
+	private RipPanel aMainWindow = null;
 
 	/**
 	 * Create gui and try to restore size and position from last time.
@@ -30,7 +30,7 @@ public class Rip extends Application {
 
 		Log.get().setLogLevel(1);
 		aaRipper = this;
-		aMainWindow = new MainWindow();// convert type
+		aMainWindow = new RipPanel();// convert type
 		aThreads.start();
 		addMainPanel(aMainWindow);
 		// restore(aMainWindow);
@@ -85,7 +85,7 @@ public class Rip extends Application {
 	 * 
 	 * @return Main pamel object
 	 */
-	public MainWindow getWin() {
+	public RipPanel getWin() {
 		return aMainWindow;
 	}
 

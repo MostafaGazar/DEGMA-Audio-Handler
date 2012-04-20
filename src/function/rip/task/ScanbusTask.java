@@ -24,17 +24,17 @@ import java.awt.Toolkit;
 import java.util.Vector;
 
 import function.rip.Rip;
-import function.shared.UI.ProgressDialog;
 import function.shared.task.Command;
 import function.shared.task.parser.ErrorParserThread;
 import function.shared.task.parser.ScanbusParserThread;
 import function.shared.thread.process.ProcessRunner;
 import function.shared.thread.process.ReadStdoutAndStderrProc;
+import function.shared.ui.ProgressDialog;
 import function.shared.util.Log;
 import function.shared.util.Progress;
 
 
-import view.NewMain;
+import ui.NewMain;
 
 /**
  * Scan for available SCSI drives.

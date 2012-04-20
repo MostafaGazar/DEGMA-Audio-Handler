@@ -15,15 +15,15 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import ui.Messages;
+import ui.NewMain;
+import ui.WaitingDialog;
 import util.ConstantMethods;
-import view.Messages;
-import view.NewMain;
-import view.WaitingDialog;
 import view.fileChooser.AudioVideoFilter;
 import view.fileChooser.ImageFileView;
 
-import function.concat.ConcatWithNoUI;
-import function.convert.wavToMp3.WAV_To_MP3;
+import function.concat.FilesConcator;
+import function.convert.util.WavToMp3;
 
 
 /**
@@ -121,7 +121,7 @@ public class MergingPanel {
 				// show the dialog
 				holdingWd.setVisible(true);
 				try {
-					if (!ConcatWithNoUI.merge(arg)) {
+					if (!FilesConcator.merge(arg)) {
 						JOptionPane.showMessageDialog(
 								NewMain.frame,
 								Messages.getString("Constants.error_CanMergeFilesSpecifiedMayBeBecauseOfCrashedFileOrNotSupportedFormat"), Messages.getString("Constants.title_SorryButProcessCanNotCompleted"), //$NON-NLS-2$
@@ -134,7 +134,7 @@ public class MergingPanel {
 							temp = temp.replaceFirst(
 									Messages.getString("Constants.file"), ""); //$NON-NLS-2$
 							// System.out.println(outFilePath+"   "+temp);
-							new WAV_To_MP3(outFilePath, temp, holdingWd);
+							new WavToMp3(outFilePath, temp, holdingWd);
 						}
 						if (temp == null) {
 							JOptionPane.showMessageDialog(

@@ -28,9 +28,9 @@ import javax.sound.sampled.TargetDataLine;
 import javax.swing.*;
 
 
+import ui.Messages;
+import ui.NewMain;
 import util.Constants;
-import view.Messages;
-import view.NewMain;
 import view.fileChooser.AudioVideoFilter;
 import view.fileChooser.ImageFileView;
 

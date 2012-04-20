@@ -22,16 +22,16 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 
 import function.rip.Rip;
-import function.shared.UI.ProgressDialog;
 import function.shared.task.Command;
 import function.shared.task.parser.ContentsParserThread;
 import function.shared.thread.process.ProcessRunner;
 import function.shared.thread.process.ReadProc;
+import function.shared.ui.ProgressDialog;
 import function.shared.util.Log;
 import function.shared.util.Progress;
 
 
-import view.NewMain;
+import ui.NewMain;
 
 
 /**

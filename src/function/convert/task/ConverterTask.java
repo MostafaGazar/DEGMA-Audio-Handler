@@ -15,14 +15,12 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
-package function.rip.task;
-
+package function.convert.task;
 
 import java.awt.*;
 import java.util.Vector;
 
-import function.rip.Rip;
+import function.convert.Convert;
 import function.shared.music.Album;
 import function.shared.music.Track;
 import function.shared.task.Command;
@@ -33,24 +31,19 @@ import function.shared.util.Log;
 import function.shared.util.Progress;
 import function.shared.util.StopWatch;
 
-
 import ui.Messages;
 import ui.NewMain;
 import util.Constants;
 
 /**
- * The audio converter task.<br>
- * Ripp cd or transcode audio files.<br>
+ * The audio converter task.
+ * @edited Mostafa Gazar, eng.mostafa.gazar@gmail.com
  */
-public class RipperTask {
+public class ConverterTask {
 	private Album aAlbum;
 	private int aEncoderIndex = 0;
 
-	/**
-	 * @param album
-	 * @param encoderIndex
-	 */
-	public RipperTask(Album album, int encoderIndex) {
+	public ConverterTask(Album album, int encoderIndex) {
 		aEncoderIndex = encoderIndex;
 		aAlbum = album;
 	}
@@ -62,19 +55,16 @@ public class RipperTask {
 		StopWatch watch = new StopWatch();
 		Vector<BaseThread> threads = new Vector<BaseThread>();
 		ProgressDialog dlg = new ProgressDialog(NewMain.frame,
-				Messages.getString("Constants.encodingSelectedTracks"),
-				"&Cancel", true);
+				Messages.getString("Constants.encodingTracks"), "&Cancel", true);
 		boolean failed = false;
 		String message = "";
 
 		dlg.showMajorProgress();
-		// dlg.centerOnApplication();
 		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
 		dlg.setLocation((d.width / 2) - (dlg.getWidth() / 2), (d.height / 2)
 				- (dlg.getHeight() / 2));
 
-		// dlg.setApplication(Application.get());
-		Rip.get()
+		Convert.get()
 				.getWin()
 				.getStatusBar()
 				.setMessage(
@@ -93,7 +83,7 @@ public class RipperTask {
 					if (track.getDecoder() != Constants.CD_TRACK
 							&& track.aFile.equalsIgnoreCase(fileName)) {
 						throw new Exception(
-								Messages.getString("Constants.ripMessage1")
+								Messages.getString("Constants.convertMessage1")
 										+ track.aFile);
 					} else {
 						switch (track.getDecoder()) {
@@ -117,26 +107,28 @@ public class RipperTask {
 
 						default:
 							throw new Exception(
-									Messages.getString("Constants.ripMessage2"));
+									Messages.getString("Constants.convertMessage2"));
 						}
 					}
 				}
 			}
 
 			if (threads.size() < 1) {
-				throw new Exception(Messages.getString("Constants.ripMessage3"));
+				throw new Exception(
+						Messages.getString("Constants.convertMessage3"));
 
 			}
 
-			dlg.show(threads); // Run all threads one by one in the progress
-								// dialog
+			// Run all threads one by one in the progress dialog.
+			dlg.show(threads); 
 
 			if (dlg.hasBeenStopped()) {
-				throw new Exception(Messages.getString("Constants.ripMessage4"));
+				throw new Exception(
+						Messages.getString("Constants.convertMessage4"));
 
 			} else if (dlg.hasFailed()) {
-				throw new Exception(Messages.getString("Constants.ripMessage5"));
-
+				throw new Exception(
+						Messages.getString("Constants.convertMessage5"));
 			}
 		} catch (Exception e) {
 			Log.get().addTime(1, e.getMessage());
@@ -144,28 +136,28 @@ public class RipperTask {
 			failed = true;
 		} finally {
 			dlg.cancelTask();
-			Rip.get().getThreadCollector().add(threads);
+			Convert.get().getThreadCollector().add(threads);
 			watch.stop();
 
 			if (dlg.hasBeenStopped()) {
-				Rip.get().getWin().getStatusBar().setNotifyMessage(message);
+				Convert.get().getWin().getStatusBar().setNotifyMessage(message);
 			} else if (failed) {
 				HelpDialog showLog = new HelpDialog(NewMain.frame,
 						NewMain.PROGRAM_NAME + " Log", "&Close");
 				showLog.setText(Log.get().getLogMessage());
-				// showLog.centerOnApplication();
+
 				d = Toolkit.getDefaultToolkit().getScreenSize();
 				showLog.setLocation((d.width / 2) - (showLog.getWidth() / 2),
 						(d.height / 2) - (showLog.getHeight() / 2));
 
 				showLog.setVisible(true);
-				Rip.get().getWin().getStatusBar().setErrorMessage(message);
+				Convert.get().getWin().getStatusBar().setErrorMessage(message);
 			} else {
-				Rip.get()
+				Convert.get()
 						.getWin()
 						.getStatusBar()
 						.setNotifyMessage(
-								Messages.getString("Constants.ripMessage6"),
+								Messages.getString("Constants.convertMessage6"),
 								watch.toString());
 				Toolkit.getDefaultToolkit().beep();
 			}
