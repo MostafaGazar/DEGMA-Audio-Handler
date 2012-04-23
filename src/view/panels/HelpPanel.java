@@ -4,8 +4,8 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
-import ui.NewMain;
 import util.Constants;
+import view.NewMain;
 import view.panels.helpDialog.HelpDialog;
 
 

@@ -9,7 +9,7 @@ package function.cut;
 public interface IPLayCut {
 
 	/**
-	 * Add a new period user want to the out file
+	 * Add a new period user want to the out file.
 	 * 
 	 * @param startTime
 	 *            the start time of the period user want to cut (hours : minutes
@@ -21,7 +21,7 @@ public interface IPLayCut {
 	public void addToCuttingList(Time startTime, Time endTime);
 
 	/**
-	 * Delete a period from the list of periods to be cut
+	 * Delete a period from the list of periods to be cut.
 	 * 
 	 * @param index
 	 *            the period index(in the order of entering it)
@@ -29,7 +29,7 @@ public interface IPLayCut {
 	public void deleteFromCuttingList(int index);
 
 	/**
-	 * Start cutting the input file into one pieces(the output file)
+	 * Start cutting the input file into one pieces(the output file).
 	 * 
 	 * @return null: if there is no error, not null: error message(there is an
 	 *         error in the cutting process)
@@ -38,7 +38,7 @@ public interface IPLayCut {
 
 	/**
 	 * Set the input path of the input file <br>
-	 * <code>= (</code>file:/ <code>+ input path)</code>
+	 * <code>= (</code>file:/ <code>+ input path)</code>.
 	 * 
 	 * @param inputPath
 	 *            the full input path of the input file
@@ -47,7 +47,7 @@ public interface IPLayCut {
 
 	/**
 	 * Set the output path of the output file <br>
-	 * <code>= (</code>file:/ <code>+ output path)</code>
+	 * <code>= (</code>file:/ <code>+ output path)</code>.
 	 * 
 	 * @param outputPath
 	 *            the full output path of the output file
@@ -57,7 +57,7 @@ public interface IPLayCut {
 	/**
 	 * Set the frame mode to true means start and end points are specified in
 	 * frames but setting frame mode to false means that start and end points
-	 * are real times in seconds
+	 * are real times in seconds.
 	 * 
 	 * @param frameMode
 	 *            true: start and end points are specified in frames

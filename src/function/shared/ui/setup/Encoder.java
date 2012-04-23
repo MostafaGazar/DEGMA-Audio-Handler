@@ -15,16 +15,13 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.ui.setup;
-
 
 import javax.swing.*;
 
 import function.shared.ui.ComponentFactory;
 import function.shared.ui.setup.BaseSetupPanel;
 import function.shared.util.Pref;
-
 
 import util.Constants;
 
@@ -34,11 +31,13 @@ import java.awt.event.ActionListener;
 
 /**
  * Set encoder options. Dump to wav files and decoding has no options.
+ * 
+ * @edited Mostafa Gazar, eng.mostafa.gazar@gmail.com
  */
 public class Encoder extends BaseSetupPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
 
-	private JComboBox aDefault = null;
+	private JComboBox<String> aDefault = null;
 	private JTextField aEncoderName[];
 	private JTextField aEncoderParam[];
 	private JButton aResetButton[];
@@ -115,8 +114,6 @@ public class Encoder extends BaseSetupPanel implements ActionListener {
 
 	/**
 	 * Restore default name and parameters if button is pressed.
-	 * 
-	 * @param actionEvent
 	 */
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {

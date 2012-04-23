@@ -15,7 +15,6 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.thread;
 
 import function.shared.util.Log;
@@ -32,9 +31,6 @@ public class BaseThread extends Thread {
 
 	/**
 	 * Create thread and set log/progress object. Can be null.
-	 * 
-	 * @param log
-	 * @param progress
 	 */
 	public BaseThread(Log log, Progress progress) {
 		super();
@@ -44,8 +40,6 @@ public class BaseThread extends Thread {
 
 	/**
 	 * Add log message.
-	 * 
-	 * @param message
 	 */
 	public void addLog(int verbose, String message) {
 		if (aLog != null) {
@@ -80,8 +74,6 @@ public class BaseThread extends Thread {
 
 	/**
 	 * Set failed status.
-	 * 
-	 * @param failed
 	 */
 	public void setFailed(boolean failed) {
 		aFailed = failed;
@@ -89,8 +81,6 @@ public class BaseThread extends Thread {
 
 	/**
 	 * Set log object.
-	 * 
-	 * @param log
 	 */
 	public void setLog(Log log) {
 		aLog = log;

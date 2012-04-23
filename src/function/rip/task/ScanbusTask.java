@@ -15,9 +15,7 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.rip.task;
-
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -33,8 +31,7 @@ import function.shared.ui.ProgressDialog;
 import function.shared.util.Log;
 import function.shared.util.Progress;
 
-
-import ui.NewMain;
+import view.NewMain;
 
 /**
  * Scan for available SCSI drives.
@@ -42,9 +39,6 @@ import ui.NewMain;
 public class ScanbusTask {
 	public Vector<String> aDevices = null;
 
-	/**
-     *
-     */
 	public ScanbusTask() {
 	}
 
@@ -69,7 +63,6 @@ public class ScanbusTask {
 			runner = new ReadStdoutAndStderrProc(Log.get(), null,
 					Command.getScanbus(), parserThread, errorThread);
 
-			// dlg.centerOnApplication();
 			Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
 			dlg.setLocation((d.width / 2) - (dlg.getWidth() / 2),
 					(d.height / 2) - (dlg.getHeight() / 2));

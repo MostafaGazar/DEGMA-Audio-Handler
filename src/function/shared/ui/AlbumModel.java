@@ -15,15 +15,12 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.ui;
-
 
 import javax.swing.table.DefaultTableModel;
 
 import function.shared.music.Album;
 import function.shared.music.Track;
-
 
 import util.Constants;
 
@@ -36,9 +33,6 @@ public class AlbumModel extends DefaultTableModel {// AbstractTableModel{
 
 	private Album aAlbum = null;
 
-	/**
-     *
-     */
 	public AlbumModel() {
 	}
 
@@ -95,7 +89,7 @@ public class AlbumModel extends DefaultTableModel {// AbstractTableModel{
 	 * @return Class type
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Class getColumnClass(int column) {
 		Object anObject = getValueAt(0, column);
 
@@ -170,8 +164,6 @@ public class AlbumModel extends DefaultTableModel {// AbstractTableModel{
 	/**
 	 * Only filename and select box can be edited.
 	 * 
-	 * @param row
-	 * @param col
 	 * @return true if cell can be edited
 	 */
 	@Override
@@ -189,8 +181,6 @@ public class AlbumModel extends DefaultTableModel {// AbstractTableModel{
 
 	/**
 	 * Set new album to display.
-	 * 
-	 * @param album
 	 */
 	public void setAlbum(Album album) {
 		aAlbum = album;
@@ -199,10 +189,6 @@ public class AlbumModel extends DefaultTableModel {// AbstractTableModel{
 
 	/**
 	 * Select/unselect track or edit track name.
-	 * 
-	 * @param value
-	 * @param row
-	 * @param col
 	 */
 	@Override
 	public void setValueAt(Object value, int row, int col) {

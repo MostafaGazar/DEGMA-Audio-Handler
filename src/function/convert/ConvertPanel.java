@@ -32,8 +32,8 @@ import function.shared.music.Album;
 import function.shared.ui.QualityChooser;
 import function.shared.ui.StatusBar;
 
-import ui.Messages;
-import ui.NewMain;
+import view.Messages;
+import view.NewMain;
 
 /**
  * JRipper application class. Create main gui stuff here.

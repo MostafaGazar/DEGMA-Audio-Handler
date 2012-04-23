@@ -15,7 +15,6 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.thread;
 
 import java.util.ArrayList;
@@ -28,16 +27,11 @@ public class ThreadCollector extends Thread {
 	public boolean IS_RUNNING = true;
 	private final ArrayList<BaseThread> aThread = new ArrayList<BaseThread>();
 
-	/**
-     *
-     */
 	public ThreadCollector() {
 	}
 
 	/**
 	 * Add thread to collector.
-	 * 
-	 * @param thread
 	 */
 	public void add(BaseThread thread) {
 		thread.stopLogging();
@@ -48,8 +42,6 @@ public class ThreadCollector extends Thread {
 
 	/**
 	 * Add threads to collector.
-	 * 
-	 * @param threads
 	 */
 	public void add(Vector<BaseThread> threads) {
 		for (BaseThread thread : threads) {

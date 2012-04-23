@@ -15,9 +15,7 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.rip.ui;
-
 
 import javax.swing.*;
 
@@ -25,12 +23,13 @@ import function.shared.music.Album;
 import function.shared.ui.AlbumModel;
 import function.shared.ui.ComponentFactory;
 
-
 import java.awt.*;
 
 /**
  * The tack table panel with all tracks listed. Can be tracks on a cd or from a
  * directory.
+ * 
+ * @edited Mostafa Gazar, eng.mostafa.gazar@gmail.com
  */
 public class RipTrackPanel extends JPanel {
 	private static final long serialVersionUID = 666L;
@@ -40,7 +39,6 @@ public class RipTrackPanel extends JPanel {
 	public RipTrackPanel() {
 		super();
 		aTrackTable = new JTable(new AlbumModel());
-		// aTrackTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		JScrollPane scrollPane = new JScrollPane();
 
 		aAlbumPanel = new RipAlbumPanel();
@@ -65,15 +63,12 @@ public class RipTrackPanel extends JPanel {
 		aTrackTable.getColumnModel().getColumn(4).setPreferredWidth(100);
 		aTrackTable.getColumnModel().getColumn(4).setMaxWidth(100);
 
-		// aTrackTable.setShowGrid(false);
-
 		setLayout(ComponentFactory.createBorderLayout(5, 5));
 		setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
 		scrollPane.getViewport().setView(aTrackTable);
 
 		add(scrollPane, BorderLayout.CENTER);
-		// add(new JScrollPane(aTrackTable), BorderLayout.CENTER);
 		add(aAlbumPanel, BorderLayout.SOUTH);
 	}
 

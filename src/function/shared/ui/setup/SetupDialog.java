@@ -15,9 +15,7 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.ui.setup;
-
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -31,7 +29,6 @@ import function.shared.ui.setup.General;
 import function.shared.ui.setup.Program;
 import function.shared.ui.setup.Tag;
 
-
 import util.Constants;
 
 import java.awt.*;
@@ -40,10 +37,12 @@ import java.awt.event.ActionListener;
 
 /**
  * A preference dialog.
+ * 
+ * @edited Mostafa Gazar, eng.mostafa.gazar@gmail.com
  */
 public class SetupDialog implements ActionListener, ListSelectionListener {
 	private JPanel aSetupPanel = null;
-	private JList aList = null;
+	private JList<String> aList = null;
 	private BaseSetupPanel[] aPanels = null;
 	private BaseSetupPanel aCurrentPanel = null;
 
@@ -51,21 +50,14 @@ public class SetupDialog implements ActionListener, ListSelectionListener {
 
 	/**
 	 * Create setup dialog.
-	 * 
-	 * @param owner
-	 * @param titleText
-	 * @param saveText
-	 * @param choices
-	 * @param panels
-	 * @throws HeadlessException
 	 */
-	public SetupDialog(/* JFrame owner, String titleText, */String saveText,
+	public SetupDialog(String saveText,
 			String[] choices, BaseSetupPanel[] panels) throws HeadlessException {
 		// super(owner, titleText, true);
 		aPanels = panels;
 		JButton saveButton = ComponentFactory.createButton(saveText, "", this,
 				0, 0);
-		aList = new JList(choices);
+		aList = new JList<String>(choices);
 		JScrollPane scrollPaneList = new JScrollPane();
 		mainPanel = new JPanel();
 		aSetupPanel = new JPanel();
@@ -84,29 +76,19 @@ public class SetupDialog implements ActionListener, ListSelectionListener {
 		mainPanel.add(aSetupPanel, BorderLayout.CENTER);
 		mainPanel.add(saveButton, BorderLayout.SOUTH);
 
-		// setPreferredSize(new Dimension(600, 600));
-		// setMaximumSize(new Dimension(2000, 2000));
-		// setContentPane(mainPanel);
-		// pack();
 		aList.setSelectedIndex(0);
 	}
 
 	/**
 	 * Let all child panels save them self before quitting.
-	 * 
-	 * @param actionEvent
 	 */
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
 		for (BaseSetupPanel panel : aPanels) {
 			panel.save();
 		}
-		// setVisible(false);
 	}
 
-	/**
-	 * @param listSelectionEvent
-	 */
 	@Override
 	public void valueChanged(ListSelectionEvent listSelectionEvent) {
 		int index = aList.getSelectedIndex();
@@ -120,20 +102,14 @@ public class SetupDialog implements ActionListener, ListSelectionListener {
 			aCurrentPanel = aPanels[index];
 			aCurrentPanel.setVisible(true);
 			aSetupPanel.add(aCurrentPanel, BorderLayout.NORTH);
-			// pack();
 		}
 	}
 
 	public static void main(String[] args) {
-		// new Pref(Constants.PREFERENCE_NAME);
-
 		String[] choices = Constants.SETUP_DIALOG_TABS;
 		BaseSetupPanel[] panels = { new General(), new FileNames(), new Tag(),
 				new Program(), new CDReader(), new Encoder() };
 		new SetupDialog("&Save", choices, panels);
-
-		// setup.centerOnApplication();
-		// setup.setVisible(true);
 	}
 
 	/**

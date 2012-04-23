@@ -15,9 +15,7 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.task.parser;
-
 
 import java.util.Vector;
 import java.util.regex.Matcher;
@@ -26,7 +24,6 @@ import java.util.regex.Pattern;
 import function.shared.thread.StreamThread;
 import function.shared.util.Log;
 import function.shared.util.Progress;
-
 
 /**
  * Parse the content info from the cdda2aw program and set album information.

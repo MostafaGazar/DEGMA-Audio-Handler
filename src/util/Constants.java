@@ -2,10 +2,12 @@ package util;
 
 /**
  * All preference values are defined here.
+ * 
+ * @author Mostafa Gazar, eng.mostafa.gazar@gmail.com
  */
 public class Constants {
 
-	public static final String PREFERENCE_NAME = "DEGMA Audio Handler 0.6 BY lordms12";
+	public static final String PREFERENCE_NAME = "DEGMA_Audio_Handler_0_6";
 	public static final String PREFERENCE_NAME_DEBUG = PREFERENCE_NAME
 			+ " Debug";
 
@@ -172,10 +174,7 @@ public class Constants {
 			"--- Common Devices ---", "1,0,0", "2,0,0", "/dev/cdrom",
 			"/dev/hdb", "/dev/hdc" };
 	public static final String[] SETUP_DIALOG_TABS = { "General Options  ",
-			"Music File Names    ", "Title Tag Options" };// ,
-															// "Program Paths  ",
-															// "CD Reader Settings   ",
-															// "Encoder Parameters  "
+			"Music File Names    ", "Title Tag Options" };
 
 	public static int SLEEP_DEFAULT = 0;
 	public static String SLEEP_KEY = "sleep";

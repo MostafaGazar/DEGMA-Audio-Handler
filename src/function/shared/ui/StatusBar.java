@@ -15,7 +15,6 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.ui;
 
 import javax.swing.*;
@@ -42,9 +41,6 @@ public class StatusBar extends JPanel {
 	private static final int NOTIFY = 1;
 	private static final int ERROR = 2;
 
-	/**
-     *
-     */
 	public StatusBar() {
 		super();
 		aMessage = new JLabel();
@@ -94,9 +90,6 @@ public class StatusBar extends JPanel {
 
 	/**
 	 * Set status message.
-	 * 
-	 * @param message
-	 * @param additional
 	 */
 	public void setMessage(String message, String... additional) {
 		setMessage(message, MESSAGE, additional);
@@ -104,9 +97,6 @@ public class StatusBar extends JPanel {
 
 	/**
 	 * Set error message.
-	 * 
-	 * @param message
-	 * @param additional
 	 */
 	public void setErrorMessage(String message, String... additional) {
 		setMessage(message, ERROR, additional);
@@ -114,9 +104,6 @@ public class StatusBar extends JPanel {
 
 	/**
 	 * Set notify message.
-	 * 
-	 * @param message
-	 * @param additional
 	 */
 	public void setNotifyMessage(String message, String... additional) {
 		setMessage(message, NOTIFY, additional);
@@ -172,8 +159,6 @@ public class StatusBar extends JPanel {
 		frm.add(st, BorderLayout.SOUTH);
 		frm.setSize(400, 200);
 		frm.setVisible(true);
-		// st.setMessage("Load a CD or tracks from a directory, then convert selected tracks to mp3/ogg/m4a/flac/wav files");
-		// st.setErrorMessage("Load a CD or tracks from a directory, then convert selected tracks to mp3/ogg/m4a/flac/wav files");
 		st.setNotifyMessage("Load a CD or tracks from a directory, then convert selected tracks to mp3/ogg/m4a/flac/wav files");
 	}
 }

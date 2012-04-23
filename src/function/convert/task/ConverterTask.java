@@ -31,9 +31,9 @@ import function.shared.util.Log;
 import function.shared.util.Progress;
 import function.shared.util.StopWatch;
 
-import ui.Messages;
-import ui.NewMain;
 import util.Constants;
+import view.Messages;
+import view.NewMain;
 
 /**
  * The audio converter task.

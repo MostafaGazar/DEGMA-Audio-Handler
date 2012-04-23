@@ -15,7 +15,6 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.util;
 
 import java.util.Vector;
@@ -36,16 +35,11 @@ public class Progress {
 	public boolean aIncreaseMode = false;
 	public int aUglyFugly = 0;
 
-	/**
-     *
-     */
 	public Progress() {
 	}
 
 	/**
-	 * Append new single progress task with max value as 100
-	 * 
-	 * @param minorMessage
+	 * Append new single progress task with max value as 100.
 	 */
 	public void appendTask(String minorMessage) {
 		aMinorMaxValueQue.add(100l);
@@ -55,10 +49,7 @@ public class Progress {
 	}
 
 	/**
-	 * Append new single progress task
-	 * 
-	 * @param minorMaxValue
-	 * @param minorMessage
+	 * Append new single progress task.
 	 */
 	public void appendTask(long minorMaxValue, String minorMessage) {
 		aMinorMaxValueQue.add(minorMaxValue);
@@ -68,10 +59,7 @@ public class Progress {
 	}
 
 	/**
-	 * Append progress task with max value as 100
-	 * 
-	 * @param minorMessage
-	 * @param majorMessage
+	 * Append progress task with max value as 100.
 	 */
 	public void appendTask(String minorMessage, String majorMessage) {
 		aMinorMaxValueQue.add(100l);
@@ -81,11 +69,7 @@ public class Progress {
 	}
 
 	/**
-	 * Append progress task
-	 * 
-	 * @param minorMaxValue
-	 * @param minorMessage
-	 * @param majorMessage
+	 * Append progress task.
 	 */
 	public void appendTask(long minorMaxValue, String minorMessage,
 			String majorMessage) {
@@ -179,8 +163,6 @@ public class Progress {
 
 	/**
 	 * Set minor progress value
-	 * 
-	 * @param value
 	 */
 	public void setMinorProgress(int value) {
 		if (aIncreaseMode) {

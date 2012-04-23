@@ -15,7 +15,6 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.thread.process;
 
 import function.shared.thread.StreamThread;
@@ -28,6 +27,7 @@ import function.shared.util.Progress;
  * One of the reader can also write to another child process.
  */
 public class ReadProc extends ProcessRunner {
+	
 	/**
 	 * Create a ProcessRunner object that executes a process and reads message
 	 * from stdin.

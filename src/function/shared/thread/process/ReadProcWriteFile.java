@@ -15,7 +15,6 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.thread.process;
 
 import function.shared.thread.StreamThread;
@@ -28,16 +27,10 @@ import function.shared.util.Progress;
  * One of the reader can also write to another child process.
  */
 public class ReadProcWriteFile extends ProcessRunner {
+	
 	/**
 	 * Create a ProcessRunner object that can read from one process and write to
 	 * a file.
-	 * 
-	 * @param log
-	 * @param progress
-	 * @param readParam
-	 * @param writeFileName
-	 * @param thread1
-	 * @param thread2
 	 */
 	public ReadProcWriteFile(Log log, Progress progress,
 			ProcessParam readParam, String writeFileName, StreamThread thread1,

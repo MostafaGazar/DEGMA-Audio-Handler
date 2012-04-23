@@ -15,7 +15,6 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.thread;
 
 
@@ -25,7 +24,6 @@ import java.io.BufferedReader;
 
 import function.shared.util.Log;
 import function.shared.util.Progress;
-
 
 /**
  * Stream reader thread. For reading streams from process streams. A reader can
@@ -47,17 +45,11 @@ public class StreamThread extends BaseThread {
 	protected BufferedInputStream aByteReader = null;
 	protected BufferedReader aLineReader = null;
 
-	/**
-	 * @param log
-	 * @param readType
-	 * @param write
-	 */
 	public StreamThread(Log log, Progress progress, ReadType readType,
 			boolean write) {
 		super(log, progress);
 		aType = readType;
 		aWrite = write;
-		// addLog(2, toString());
 	}
 
 	/**
@@ -86,10 +78,6 @@ public class StreamThread extends BaseThread {
 
 	/**
 	 * Default action is to send bytes to process writer.
-	 * 
-	 * @param bytes
-	 * @param size
-	 * @throws Exception
 	 */
 	public void data(byte[] bytes, int size) throws Exception {
 		if (aWrite) {
@@ -99,9 +87,6 @@ public class StreamThread extends BaseThread {
 
 	/**
 	 * Default action is to send bytes to process writer.
-	 * 
-	 * @param line
-	 * @throws Exception
 	 */
 	public void data(String line) throws Exception {
 		byte[] bytes = line.getBytes();
@@ -175,31 +160,20 @@ public class StreamThread extends BaseThread {
 		}
 	}
 
-	/**
-	 * @param stream
-	 */
 	public void setByteReader(BufferedInputStream stream) {
 		aByteReader = stream;
 	}
 
-	/**
-	 * @param stream
-	 */
 	public void setByteWriter(BufferedOutputStream stream) {
 		aByteWriter = stream;
 	}
 
-	/**
-	 * @param reader
-	 */
 	public void setLineReader(BufferedReader reader) {
 		aLineReader = reader;
 	}
 
 	/**
 	 * Set sleep time in milliseconds between every buffer write.
-	 * 
-	 * @param milli
 	 */
 	public void setSleep(int milli) {
 		aMilli = milli;
@@ -207,10 +181,6 @@ public class StreamThread extends BaseThread {
 
 	/**
 	 * Write bytes to output process.
-	 * 
-	 * @param bytes
-	 * @param size
-	 * @throws Exception
 	 */
 	public void write(byte[] bytes, int size) throws Exception {
 		if (aByteWriter != null) {

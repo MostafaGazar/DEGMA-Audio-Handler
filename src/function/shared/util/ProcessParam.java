@@ -26,16 +26,11 @@ import java.util.ArrayList;
 public class ProcessParam {
 	private ArrayList<String> aParams = new ArrayList<String>();
 
-	/**
-     *
-     */
 	public ProcessParam() {
 	}
 
 	/**
 	 * Add param, but only if length is greater than 0.
-	 * 
-	 * @param param
 	 */
 	public void add(String param) {
 		if (param.trim().length() > 0) {
@@ -45,8 +40,6 @@ public class ProcessParam {
 
 	/**
 	 * Add param, but only if length is greater than 0.
-	 * 
-	 * @param param
 	 */
 	public void addQuote(String param) {
 		if (param.trim().length() > 0) {
@@ -56,8 +49,6 @@ public class ProcessParam {
 
 	/**
 	 * Add param, but only if length is greater than 0.
-	 * 
-	 * @param param
 	 */
 	public void add(int param) {
 		aParams.add(Integer.toString(param));
@@ -65,9 +56,6 @@ public class ProcessParam {
 
 	/**
 	 * Add param, but only if length is greater than 0.
-	 * 
-	 * @param param1
-	 * @param param2
 	 */
 	public void add(String param1, String param2) {
 		if (param1.trim().length() > 0 && param2.trim().length() > 0) {
@@ -78,9 +66,6 @@ public class ProcessParam {
 
 	/**
 	 * Add param, but only if length is greater than 0.
-	 * 
-	 * @param param1
-	 * @param param2
 	 */
 	public void add(String param1, int param2) {
 		if (param1.trim().length() > 0) {
@@ -91,12 +76,9 @@ public class ProcessParam {
 
 	/**
 	 * Add param, but only if length is greater than 0.
-	 * 
-	 * @param param1
-	 * @param param2
-	 *            String will be inside ""
 	 */
 	public void addQuote(String param1, String param2) {
+		// param2 String will be inside "".
 		if (param1.trim().length() > 0 && param2.trim().length() > 0) {
 			aParams.add(param1.trim());
 			aParams.add("\"" + param2.trim() + "\"");
@@ -105,9 +87,6 @@ public class ProcessParam {
 
 	/**
 	 * Add param, but only if length is greater than 0.
-	 * 
-	 * @param param1
-	 * @param param2
 	 */
 	public void addQuote(String param1, int param2) {
 		if (param1.trim().length() > 0) {
@@ -119,8 +98,6 @@ public class ProcessParam {
 	/**
 	 * Add param. Split strings into sub strings and add each one as seperate
 	 * param.
-	 * 
-	 * @param param
 	 */
 	public void addSplitString(String param) {
 		String ve[] = param.split(" ");
@@ -131,9 +108,6 @@ public class ProcessParam {
 		}
 	}
 
-	/**
-	 * @return
-	 */
 	public String[] get() {
 		String ve[] = new String[aParams.size()];
 		int f = 0;
@@ -145,9 +119,6 @@ public class ProcessParam {
 
 	/**
 	 * Get command string.
-	 * 
-	 * @param cmd
-	 * @return
 	 */
 	@Override
 	public String toString() {

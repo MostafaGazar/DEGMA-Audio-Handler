@@ -15,27 +15,25 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.ui;
-
 
 import javax.swing.*;
 
 import function.shared.util.Log;
 import function.shared.util.Pref;
 
-
 import java.awt.*;
 import java.util.Properties;
 
 /**
  * Base Application object. Extend to create an gui application.
+ * 
+ * @edited Mostafa Gazar, eng.mostafa.gazar@gmail.com
  */
 public class Application extends JPanel {
 	public static final String CODEPAGE = "codepage";
 
 	private static Application aaApplicatation = null;
-	// private static JFrame mainFrame;
 	private JPanel aMainPanel = null;
 	private Cursor aDefaultCursor = null;
 	private Cursor aWaitCursor = null;
@@ -45,20 +43,13 @@ public class Application extends JPanel {
 
 	/**
 	 * Create Application and try to set look & feel and load resource file.
-	 * 
-	 * @param appName
-	 * @param prefName
 	 */
-	public Application() {// String appName, String prefName) {
-		// super(appName);
+	public Application() {
 		Log.get().setLogLevel(3);
 		aaApplicatation = this;
 		aDefaultCursor = new Cursor(Cursor.DEFAULT_CURSOR);
 		aWaitCursor = new Cursor(Cursor.WAIT_CURSOR);
 		aOperatingSystem = System.getProperty("os.name");
-		// aAppName = appName;
-
-		// new Pref(prefName);
 
 		try {
 			if (Pref.getPref(CODEPAGE, "").length() > 0) {
@@ -72,8 +63,6 @@ public class Application extends JPanel {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		// setLookAndFeel(true);
 	}
 
 	/**
@@ -84,10 +73,6 @@ public class Application extends JPanel {
 	public static Application get() {
 		return aaApplicatation;
 	}
-
-	/*
-	 * public static JFrame getMainFrame() { return mainFrame; }
-	 */
 
 	/**
 	 * Get codepage name.
@@ -114,25 +99,9 @@ public class Application extends JPanel {
 		return aOperatingSystem.startsWith("Windows");
 	}
 
-	/*
-	 * Quit application. Save last used path and screen position.
-	 */
-	/*
-	 * public void quit() { try { Dimension size = getSize(); Point pos =
-	 * getLocation();
-	 * 
-	 * Pref.setPref("w", Double.toString(size.getWidth())); Pref.setPref("h",
-	 * Double.toString(size.getHeight())); Pref.setPref("x",
-	 * Double.toString(pos.getX())); Pref.setPref("y",
-	 * Double.toString(pos.getY())); } catch (Exception e) { }
-	 * //setVisible(false); //dispose(); //System.exit(0); }
-	 */
-
 	/**
 	 * Set new codepage. It's the "file.encoding" system property. To do other
 	 * encoding changes you must do it manually.
-	 * 
-	 * @param newCodePage
 	 */
 	public void setCodePage(String newCodePage) {
 		if (newCodePage.length() > 0 || Pref.getPref(CODEPAGE, "").length() > 0) {
@@ -151,34 +120,11 @@ public class Application extends JPanel {
 	}
 
 	/**
-	 * @param iconName
-	 */
-	/*
-	 * public void setIcon(String iconName) { try { URL pathShell; ClassLoader
-	 * cl = Application.class.getClassLoader(); pathShell =
-	 * cl.getResource(iconName);
-	 * 
-	 * Image icon = Toolkit.getDefaultToolkit().getImage(pathShell);
-	 * setIconImage(icon); } catch (Exception e) { e.printStackTrace(); } }
-	 */
-
-	/**
 	 * Set normal cursor
 	 */
 	public void setNormalCursor() {
 		aMainPanel.setCursor(aDefaultCursor);
 	}
-
-	/**
-	 * Set application title text.
-	 * 
-	 * @param additionalText
-	 */
-	/*
-	 * public void setTitle(String additionalText) { if (additionalText != null)
-	 * { super.setTitle(aAppName + additionalText); } else {
-	 * super.setTitle(aAppName); } }
-	 */
 
 	/**
 	 * Set wait cursor
@@ -223,42 +169,6 @@ public class Application extends JPanel {
 		JOptionPane.showMessageDialog(this, resName, aAppName,
 				JOptionPane.INFORMATION_MESSAGE);
 	}
-
-	/**
-	 * Add main panel and restore size.
-	 * 
-	 * @param panel
-	 */
-	/*
-	 * public void restore(JPanel panel, JFrame frm) { aMainPanel = panel;
-	 * mainFrame = frm;
-	 * 
-	 * //add(aMainPanel); // double w = Pref.getPref("w", 800.0); // double h =
-	 * Pref.getPref("h", 600.0); // double x = Pref.getPref("x", 50.0); //
-	 * double y = Pref.getPref("y", 50.0); // Dimension screenSize =
-	 * Toolkit.getDefaultToolkit().getScreenSize(); // if (w < 100) { // w =
-	 * 100; // } // if (w > 3000) { // w = 800; // } // if (h < 100) { // h =
-	 * 100; // } // if (h > 3000) { // h = 600; // } // if (x < 0) { // x = 0;
-	 * // } // if (x > screenSize.getWidth()) { // x = 50; // } // if (y < 0) {
-	 * // y = 0; // } // if (y > screenSize.getHeight()) { // y = 50; // }
-	 * 
-	 * mainFrame.setContentPane(aMainPanel); mainFrame.setSize(500, 400);
-	 * mainFrame.setLocation(100, 100); //mainFrame.pack(); //setSize((int) w,
-	 * (int) h); //setLocation((int) x, (int) y);
-	 * 
-	 * // addWindowListener(new java.awt.event.WindowAdapter() { // public void
-	 * windowClosing(java.awt.event.WindowEvent e) { // quit(); // } // });
-	 * 
-	 * mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); }
-	 */
-
-	/*
-	 * @param mainFrame the mainFrame to set
-	 */
-	/*
-	 * public void setMainFrame(JFrame mainFrame) { Application.mainFrame =
-	 * mainFrame; }
-	 */
 
 	/**
 	 * @param mainPanel

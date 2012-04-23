@@ -48,11 +48,12 @@ import java.io.IOException;
  * A sample program to cut an input file given the start and end points. String
  * arg[]={"-o", "file:/c:/1.mp3", "file:/c:/test.wav", "-s", "5000", "-e",
  * "10000","-s", "50000", "-e", "100000"};
+ * 
+ * @edited Mostafa Gazar, eng.mostafa.gazar@gmail.com
  */
 public class FilesCutter implements ControllerListener, DataSinkListener {
-	// static WaitingDialog holdingWd;
-	public static void cut(String[] args) {// , WaitingDialog holdingWd1){
-		// holdingWd = holdingWd1;
+
+	public static void cut(String[] args) {
 		String inputURL = null;
 		String outputURL = null;
 		long start[], end[];
@@ -178,29 +179,27 @@ public class FilesCutter implements ControllerListener, DataSinkListener {
 
 		if ((iml = createMediaLocator(inputURL)) == null) {
 			System.err.println("Cannot build media locator from: " + inputURL);
-			// System.exit(0);
+
 			String opt[] = { "OK" };
 			JOptionPane.showOptionDialog(null, "Error: Unexpected error.",
 					"Sorry but process can not completed",
 					JOptionPane.INFORMATION_MESSAGE, JOptionPane.ERROR_MESSAGE,
 					null, opt, "1");
-			// holdingWd.dispose();//hide();
 			return;
 		}
 
 		if ((oml = createMediaLocator(outputURL)) == null) {
 			System.err.println("Cannot build media locator from: " + outputURL);
-			// System.exit(0);
+
 			String opt[] = { "OK" };
 			JOptionPane.showOptionDialog(null, "Error: Unexpected error.",
 					"Sorry but process can not completed",
 					JOptionPane.INFORMATION_MESSAGE, JOptionPane.ERROR_MESSAGE,
 					null, opt, "1");
-			// holdingWd.dispose();//hide();
 			return;
 		}
 
-		// Trancode with the specified parameters.
+		// Transcode with the specified parameters.
 		FilesCutter cut = new FilesCutter();
 
 		if (!cut.doIt(iml, oml, start, end, frameMode)) {
@@ -211,7 +210,6 @@ public class FilesCutter implements ControllerListener, DataSinkListener {
 					"Sorry but process can not completed",
 					JOptionPane.INFORMATION_MESSAGE, JOptionPane.ERROR_MESSAGE,
 					null, opt, "1");
-			// holdingWd.dispose();//hide();
 			return;
 		}
 
@@ -219,8 +217,6 @@ public class FilesCutter implements ControllerListener, DataSinkListener {
 		JOptionPane.showOptionDialog(null, "Info: Done successfully.",
 				"Process is completed", JOptionPane.INFORMATION_MESSAGE,
 				JOptionPane.INFORMATION_MESSAGE, null, opt, "1");
-		// holdingWd.dispose();//hide();
-		// System.exit(0);
 	}
 
 	/**
@@ -229,7 +225,6 @@ public class FilesCutter implements ControllerListener, DataSinkListener {
 	 */
 	public boolean doIt(MediaLocator inML, MediaLocator outML, long start[],
 			long end[], boolean frameMode) {
-
 		// Guess the output content descriptor from the file extension.
 		ContentDescriptor cd;
 
@@ -377,7 +372,6 @@ public class FilesCutter implements ControllerListener, DataSinkListener {
 	 * cutting.
 	 */
 	void checkTrackFormats(Processor p) {
-
 		TrackControl tc[] = p.getTrackControls();
 		VideoFormat mpgVideo = new VideoFormat(VideoFormat.MPEG);
 		AudioFormat rawAudio = new AudioFormat(AudioFormat.LINEAR);
@@ -418,7 +412,6 @@ public class FilesCutter implements ControllerListener, DataSinkListener {
 	 * 0.5 is a good default.
 	 */
 	void setJPEGQuality(Player p, float val) {
-
 		Control cs[] = p.getControls();
 		QualityControl qc = null;
 		VideoFormat jpegFmt = new VideoFormat(VideoFormat.JPEG);
@@ -634,6 +627,7 @@ public class FilesCutter implements ControllerListener, DataSinkListener {
 	/**
 	 * Create a media locator from the given string.
 	 */
+	@SuppressWarnings("unused")
 	static MediaLocator createMediaLocator(String url) {
 
 		MediaLocator ml;
@@ -669,13 +663,7 @@ public class FilesCutter implements ControllerListener, DataSinkListener {
 				"Sorry but process can not completed",
 				JOptionPane.INFORMATION_MESSAGE, JOptionPane.ERROR_MESSAGE,
 				null, opt, "1");
-		// holdingWd.dispose();//hide();
 	}
-
-	// //////////////////////////////////////
-	//
-	// Inner classes.
-	// //////////////////////////////////////
 
 	/**
 	 * The customed DataSource to cut input.
@@ -801,7 +789,6 @@ public class FilesCutter implements ControllerListener, DataSinkListener {
 		 * Called from the transferData to read data from the input.
 		 */
 		void processData() {
-
 			// We have a synchronized buffer Q of 1.
 			synchronized (buffer) {
 				while (bufferFilled == 1) {
@@ -861,7 +848,6 @@ public class FilesCutter implements ControllerListener, DataSinkListener {
 		 */
 		@Override
 		public void read(Buffer rdBuf) throws IOException {
-
 			/**
 			 * Check if there's any buffer in the Q to read.
 			 */
@@ -881,7 +867,6 @@ public class FilesCutter implements ControllerListener, DataSinkListener {
 			buffer.setData(oldData);
 
 			// Remap the time stamps.
-
 			if (isRawAudio(rdBuf.getFormat())) {
 				// Raw audio has a accurate to compute time.
 				rdBuf.setTimeStamp(computeDuration(audioElapsed,
@@ -906,7 +891,6 @@ public class FilesCutter implements ControllerListener, DataSinkListener {
 		 * based on the start and end times.
 		 */
 		boolean checkTimeToSkip(Buffer buf) {
-
 			if (idx >= startReached.length)
 				return false;
 
@@ -1048,85 +1032,5 @@ public class FilesCutter implements ControllerListener, DataSinkListener {
 			processData();
 		}
 
-	} // class SuperCutStream
-	/*
-	 * /// // Main program // // public static void main(String [] args) { //
-	 * CutWithNoUI a=new CutWithNoUI(); // long s[]={100}; // long
-	 * e[]={90000000}; // a.doIt(createMediaLocator("2.wav"),
-	 * createMediaLocator("out.wav"), s, e, false); // } public static void
-	 * main(String [] args) { String arg[]={"-o", "file:/c:/1.mp3",
-	 * "file:/c:/test.wav", "-s", "5000", "-e", "10000","-s", "50000", "-e",
-	 * "100000"}; args=arg; String inputURL = null; String outputURL = null;
-	 * long start[], end[]; Vector startV = new Vector(); Vector endV = new
-	 * Vector(); boolean frameMode = false;
-	 * 
-	 * if (args.length == 0) prUsage();
-	 * 
-	 * // Parse the arguments. int i = 0; while (i < args.length) {
-	 * 
-	 * if (args[i].equals("-o")) { i++; if (i >= args.length) prUsage();
-	 * outputURL = args[i]; } else if (args[i].equals("-f")) { frameMode = true;
-	 * } else if (args[i].equals("-s")) { i++; if (i >= args.length) prUsage();
-	 * startV.addElement(new Long(args[i])); } else if (args[i].equals("-e")) {
-	 * i++; if (i >= args.length) prUsage(); endV.addElement(new Long(args[i]));
-	 * 
-	 * // For every end point, there should be a matching // start point; unless
-	 * is the first point. if (startV.size() != endV.size()) { if (startV.size()
-	 * == 0) startV.addElement(new Long(0)); else prUsage(); } } else { inputURL
-	 * = args[i]; } i++; }
-	 * 
-	 * if (inputURL == null) { System.err.println("No input url specified.");
-	 * prUsage(); }
-	 * 
-	 * if (outputURL == null) { System.err.println("No output url specified.");
-	 * prUsage(); }
-	 * 
-	 * if (startV.size() == 0 && endV.size() == 0) {
-	 * System.err.println("No start and end point specified."); prUsage(); }
-	 * 
-	 * // Pad the last end point if necessary. if (startV.size() > endV.size())
-	 * { if (startV.size() == endV.size() + 1) endV.addElement(new
-	 * Long(Long.MAX_VALUE)); else prUsage(); }
-	 * 
-	 * start = new long[startV.size()]; end = new long[startV.size()]; long
-	 * prevEnd = 0;
-	 * 
-	 * // Parse the start and end points. for (int j = 0; j < start.length; j++)
-	 * {
-	 * 
-	 * start[j] = ((Long)startV.elementAt(j)).longValue(); end[j] =
-	 * ((Long)endV.elementAt(j)).longValue();
-	 * 
-	 * if (prevEnd > start[j]) {
-	 * System.err.println("Previous end point cannot be > the next start point."
-	 * ); prUsage(); } else if (start[j] >= end[j]) {
-	 * System.err.println("Start point cannot be >= end point."); prUsage(); }
-	 * 
-	 * prevEnd = end[j]; }
-	 * 
-	 * if (frameMode) {
-	 * System.err.println("Start and end points are specified in frames."); }
-	 * else { // Times are in millseconds. We'll turn them into nanoseconds. for
-	 * (int j = 0; j < start.length; j++) { start[j] *= 1000000; if (end[j] !=
-	 * Long.MAX_VALUE) end[j] *= 1000000; } }
-	 * 
-	 * // Generate the input and output media locators. MediaLocator iml;
-	 * MediaLocator oml;
-	 * 
-	 * if ((iml = createMediaLocator(inputURL)) == null) {
-	 * System.err.println("Cannot build media locator from: " + inputURL);
-	 * System.exit(0); }
-	 * 
-	 * if ((oml = createMediaLocator(outputURL)) == null) {
-	 * System.err.println("Cannot build media locator from: " + outputURL);
-	 * System.exit(0); }
-	 * 
-	 * // Trancode with the specified parameters. CutWithNoUI cut = new
-	 * CutWithNoUI();
-	 * 
-	 * if (!cut.doIt(iml, oml, start, end, frameMode)) {
-	 * System.err.println("Failed to cut the input"); }
-	 * 
-	 * System.exit(0); }
-	 */
+	} 
 }

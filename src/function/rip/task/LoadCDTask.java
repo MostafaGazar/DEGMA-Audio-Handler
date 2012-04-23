@@ -31,7 +31,7 @@ import function.shared.util.Log;
 import function.shared.util.Progress;
 
 
-import ui.NewMain;
+import view.NewMain;
 
 
 /**

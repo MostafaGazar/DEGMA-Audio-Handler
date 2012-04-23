@@ -15,9 +15,7 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.rip.ui;
-
 
 import javax.swing.*;
 
@@ -25,7 +23,6 @@ import function.rip.Rip;
 import function.shared.music.Album;
 import function.shared.music.MP3Genre;
 import function.shared.util.Pref;
-
 
 import util.Constants;
 
@@ -36,6 +33,8 @@ import java.util.Calendar;
  * Show album data. It's a panel that contains a text fields for artist, album,
  * year, comment, genre and time. These data will be the meta info that will be
  * used for encoding the tracks.
+ * 
+ * @edited Mostafa Gazar, eng.mostafa.gazar@gmail.com
  */
 public class RipAlbumPanel extends JPanel {
 	private static final long serialVersionUID = 666L;
@@ -46,7 +45,7 @@ public class RipAlbumPanel extends JPanel {
 	public JTextField aAlbum = null;
 	public JTextField aYear = null;
 	public JTextField aComment = null;
-	public JComboBox aGenre = null;
+	public JComboBox<String> aGenre = null;
 	public JLabel aTime = null;
 
 	Calendar now = Calendar.getInstance();
@@ -85,7 +84,7 @@ public class RipAlbumPanel extends JPanel {
 		tmp = new JPanel();
 		tmp.setLayout(new BoxLayout(tmp, BoxLayout.X_AXIS));
 		aAlbum = new JTextField("");
-		aGenre = new JComboBox(MP3Genre.get().getGenres());
+		aGenre = new JComboBox<String>(MP3Genre.get().getGenres());
 		aGenre.setSelectedIndex(MP3Genre.get().getGenres()
 				.indexOf(MP3Genre.DEFAULT_STRING));
 		aGenre.setPreferredSize(new Dimension(150, (int) aGenre.getSize()
@@ -117,9 +116,8 @@ public class RipAlbumPanel extends JPanel {
 	/**
 	 * Copy album data.
 	 * 
-	 * @param album
-	 *            - The album data object
-	 * @return - true if data was ok
+	 * @param album The album data object
+	 * @return true if data was OK
 	 */
 	public boolean copyAlbum(Album album) {
 		album.aArtist = aArtist.getText();
@@ -175,8 +173,7 @@ public class RipAlbumPanel extends JPanel {
 	/**
 	 * Set album data.
 	 * 
-	 * @param album
-	 *            - The album data object
+	 * @param album The album data object
 	 */
 	public void setAlbum(Album album) {
 		if (album != null) {

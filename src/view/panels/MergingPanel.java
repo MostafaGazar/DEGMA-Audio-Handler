@@ -15,10 +15,10 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import ui.Messages;
-import ui.NewMain;
-import ui.WaitingDialog;
 import util.ConstantMethods;
+import view.Messages;
+import view.NewMain;
+import view.WaitingDialog;
 import view.fileChooser.AudioVideoFilter;
 import view.fileChooser.ImageFileView;
 

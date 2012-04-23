@@ -10,9 +10,6 @@ public abstract class BaseSetupPanel extends JPanel {
 
 	public boolean aScroll = false;
 
-	/**
-     *
-     */
 	public BaseSetupPanel() {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 	}

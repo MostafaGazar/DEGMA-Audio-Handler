@@ -15,9 +15,7 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.ui.setup;
-
 
 import javax.swing.*;
 
@@ -25,23 +23,21 @@ import function.shared.ui.ComponentFactory;
 import function.shared.ui.setup.BaseSetupPanel;
 import function.shared.util.Pref;
 
-
 import util.Constants;
 
 import java.awt.*;
 
 /**
  * Set music title tag option.
+ * 
+ * @edited Mostafa Gazar, eng.mostafa.gazar@gmail.com
  */
 public class Tag extends BaseSetupPanel {
 	private static final long serialVersionUID = 1L;
 
-	private JComboBox aTitelTagChoices = null;
+	private JComboBox<String> aTitelTagChoices = null;
 	private JCheckBox aRemoveNonLetters = null;
 
-	/**
-     *
-     */
 	public Tag() {
 		aTitelTagChoices = ComponentFactory.createCombo(
 				Constants.TITLE_OPTIONS,

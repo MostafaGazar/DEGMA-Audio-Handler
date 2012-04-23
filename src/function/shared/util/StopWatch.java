@@ -15,7 +15,6 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.util;
 
 import java.util.Calendar;
@@ -31,39 +30,22 @@ public class StopWatch {
 		return aStartTime;
 	}
 
-	/**
-	 * @return
-	 */
 	public long getStopTime() {
 		return aStopTime;
 	}
 
-	/**
-     *
-     */
 	public void start() {
 		aStartTime = Calendar.getInstance().getTimeInMillis();
 	}
 
-	/**
-     *
-     */
 	public void stop() {
 		aStopTime = Calendar.getInstance().getTimeInMillis();
 	}
 
-	/**
-	 * @return
-	 */
 	public double getDiffTime() {
 		return (aStopTime - aStartTime) / 1000d;
 	}
 
-	/**
-	 * @param start
-	 * @param stop
-	 * @return
-	 */
 	@Override
 	public String toString() {
 		long start = aStartTime / 1000;

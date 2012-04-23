@@ -15,16 +15,13 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.ui.setup;
-
 
 import javax.swing.*;
 
 import function.shared.ui.ComponentFactory;
 import function.shared.ui.setup.BaseSetupPanel;
 import function.shared.util.Pref;
-
 
 import util.Constants;
 
@@ -33,19 +30,18 @@ import java.awt.*;
 /**
  * Set directory and file creation options (directorytype, filenametype,
  * prefixtype, prefixsep, useprefix).
+ * 
+ * @edited Mostafa Gazar, eng.mostafa.gazar@gmail.com
  */
 public class FileNames extends BaseSetupPanel {
 	private static final long serialVersionUID = 1L;
 
-	private JComboBox aDirChoices = null;
-	private JComboBox aFileChoices = null;
+	private JComboBox<String> aDirChoices = null;
+	private JComboBox<String> aFileChoices = null;
 	private JTextField aTrackSep = null;
-	private JComboBox aTrackNo = null;
+	private JComboBox<String> aTrackNo = null;
 	private JCheckBox aPrefix = null;
 
-	/**
-     *
-     */
 	public FileNames() {
 		aDirChoices = ComponentFactory
 				.createCombo(

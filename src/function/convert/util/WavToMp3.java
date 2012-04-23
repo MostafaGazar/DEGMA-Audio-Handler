@@ -7,7 +7,7 @@ import javax.media.MediaLocator;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import ui.WaitingDialog;
+import view.WaitingDialog;
 
 /**
  * Use <b>jmf.jar</b> to convert wav files to mp3 files.

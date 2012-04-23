@@ -15,16 +15,13 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.ui.setup;
-
 
 import javax.swing.*;
 
 import function.rip.task.ScanbusTask;
 import function.shared.ui.ComponentFactory;
 import function.shared.util.Pref;
-
 
 import util.Constants;
 
@@ -37,12 +34,14 @@ import java.util.regex.Pattern;
 
 /**
  * Set cd reader options (device, speed, paranoia).
+ * 
+ * @edited Mostafa Gazar, eng.mostafa.gazar@gmail.com
  */
 public class CDReader extends BaseSetupPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
 
-	private JComboBox aCDDevice = null;
-	private JComboBox aCDSpeed = null;
+	private JComboBox<String> aCDDevice = null;
+	private JComboBox<String> aCDSpeed = null;
 	private JCheckBox aCDParanoia = null;
 	private JCheckBox aCDMono = null;
 	private JButton aScanbus = null;
@@ -91,8 +90,6 @@ public class CDReader extends BaseSetupPanel implements ActionListener {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		add(ComponentFactory.createThreePanel(new JLabel("CD Device"),
 				aCDDevice, aScanbus));
-		// add(ComponentFactory.createTwoPanel(new JLabel("CD Device"),
-		// aCDDevice));
 		add(Box.createRigidArea(new Dimension(0, 5)));
 		add(ComponentFactory.createTwoPanel(new JLabel("CD Reading Speed"),
 				aCDSpeed));
@@ -104,8 +101,6 @@ public class CDReader extends BaseSetupPanel implements ActionListener {
 
 	/**
 	 * Scan for devices.
-	 * 
-	 * @param actionEvent
 	 */
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
@@ -141,7 +136,7 @@ public class CDReader extends BaseSetupPanel implements ActionListener {
 	/**
 	 * Data model for combobox with cd devices.
 	 */
-	class DeviceModel extends DefaultComboBoxModel {
+	class DeviceModel extends DefaultComboBoxModel<String> {
 		private static final long serialVersionUID = 1L;
 
 		public void addDevices(Vector<String> ve2) {

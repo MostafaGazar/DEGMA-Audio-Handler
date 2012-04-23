@@ -15,9 +15,7 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.task;
-
 
 import java.io.File;
 import java.util.Vector;
@@ -36,7 +34,6 @@ import function.shared.util.Log;
 import function.shared.util.Pref;
 import function.shared.util.ProcessParam;
 import function.shared.util.Progress;
-
 
 import util.Constants;
 
@@ -464,34 +461,6 @@ public class Command {
 
 		return param;
 	}
-
-	// /**
-	// * Get params for loading toc from cddb server.
-	// *
-	// * @return Command line parameters for reading cd tracks
-	// */
-	// public static ProcessParam getCDDBDecoder() {
-	// ProcessParam param = new ProcessParam();
-	//
-	// param.add(Pref.getPref(Constants.CD_READER_KEY,
-	// Constants.CD_READER_DEFAULT));
-	// param.add("-D");
-	// param.add(Pref.getPref(Constants.CD_DEVICE_KEY,
-	// Constants.CD_DEVICE_DEFAULT));
-	// param.add("-g");
-	// param.add("-H");
-	// param.add("-J");
-	// param.add("-v");
-	// param.add("toc,title,sectors");
-	// param.add("-L");
-	// param.add("1");
-	// param.add("-cddbp-server=" + Pref.getPref(Constants.CDDBP_SERVER_KEY,
-	// Constants.CDDBP_SERVER_DEFAULT));
-	// param.add("-cddbp-port=" + Pref.getPref(Constants.CDDBP_PORT_KEY,
-	// Constants.CDDBP_PORT_DEFAULT));
-	//
-	// return param;
-	// }
 
 	/**
 	 * Get params for converting flac to wav, either to file or stdout.

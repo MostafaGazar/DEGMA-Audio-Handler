@@ -16,9 +16,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-import ui.Messages;
-import ui.WaitingDialog;
 import util.ConstantMethods;
+import view.Messages;
+import view.WaitingDialog;
 import view.fileChooser.AudioVideoFilter;
 import view.fileChooser.ImageFileView;
 

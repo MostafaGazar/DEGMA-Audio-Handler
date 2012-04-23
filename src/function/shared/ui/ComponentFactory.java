@@ -15,7 +15,6 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.ui;
 
 import javax.swing.*;
@@ -24,17 +23,13 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 /**
- *
+ * @edited Mostafa Gazar, eng.mostafa.gazar@gmail.com
  */
 public class ComponentFactory {
 	public static final int MAX_WIDTH = Short.MAX_VALUE;
 
 	/**
 	 * Create border layout with hgap and vgap set.
-	 * 
-	 * @param hgap
-	 * @param vgap
-	 * @return
 	 */
 	public static BorderLayout createBorderLayout(int hgap, int vgap) {
 		BorderLayout tmp = new BorderLayout();
@@ -45,13 +40,6 @@ public class ComponentFactory {
 
 	/**
 	 * Create button.
-	 * 
-	 * @param label
-	 * @param tip
-	 * @param listener
-	 * @param width
-	 * @param max_width
-	 * @return
 	 */
 	public static JButton createButton(String label, String tip,
 			ActionListener listener, int width, int max_width) {
@@ -110,17 +98,9 @@ public class ComponentFactory {
 		return tmp;
 	}
 
-	/**
-	 * @param choices
-	 * @param index
-	 * @param tip
-	 * @param width
-	 * @param max_width
-	 * @return
-	 */
-	public static JComboBox createCombo(String[] choices, int index,
+	public static JComboBox<String> createCombo(String[] choices, int index,
 			String tip, int width, int max_width) {
-		JComboBox tmp = new JComboBox(choices);
+		JComboBox<String> tmp = new JComboBox<String>(choices);
 		if (index < tmp.getItemCount()) {
 			tmp.setSelectedIndex(index);
 		}
@@ -137,17 +117,10 @@ public class ComponentFactory {
 
 	/**
 	 * Create an editable combo box.
-	 * 
-	 * @param choices
-	 * @param text
-	 * @param tip
-	 * @param width
-	 * @param max_width
-	 * @return
 	 */
-	public static JComboBox createCombo(String[] choices, String text,
+	public static JComboBox<String> createCombo(String[] choices, String text,
 			String tip, int width, int max_width) {
-		JComboBox tmp = new JComboBox(choices);
+		JComboBox<String> tmp = new JComboBox<String>(choices);
 		tmp.setEditable(true);
 		tmp.setSelectedItem(text);
 		tmp.setToolTipText(tip);
@@ -161,17 +134,9 @@ public class ComponentFactory {
 		return tmp;
 	}
 
-	/**
-	 * @param choices
-	 * @param choices2
-	 * @param tip
-	 * @param width
-	 * @param max_width
-	 * @return
-	 */
-	public static JComboBox createCombo(String[] choices, String[] choices2,
+	public static JComboBox<String> createCombo(String[] choices, String[] choices2,
 			String index, String tip, int width, int max_width) {
-		JComboBox tmp = new JComboBox(choices);
+		JComboBox<String> tmp = new JComboBox<String>(choices);
 
 		int pos = 0;
 		int count = 0;
@@ -198,17 +163,9 @@ public class ComponentFactory {
 		return tmp;
 	}
 
-	/**
-	 * @param model
-	 * @param index
-	 * @param tip
-	 * @param width
-	 * @param max_width
-	 * @return
-	 */
-	public static JComboBox createCombo(DefaultComboBoxModel model, int index,
+	public static JComboBox<String> createCombo(DefaultComboBoxModel<String> model, int index,
 			String tip, int width, int max_width) {
-		JComboBox tmp = new JComboBox(model);
+		JComboBox<String> tmp = new JComboBox<String>(model);
 		if (index < tmp.getItemCount()) {
 			tmp.setSelectedIndex(index);
 		}
@@ -225,13 +182,6 @@ public class ComponentFactory {
 		return tmp;
 	}
 
-	/**
-	 * @param obj1
-	 * @param obj2
-	 * @param obj3
-	 * @param obj4
-	 * @return
-	 */
 	public static JPanel createFourPanel(Component obj1, Component obj2,
 			Component obj3, Component obj4) {
 		JPanel tmp = new JPanel();
@@ -252,12 +202,6 @@ public class ComponentFactory {
 
 	/**
 	 * Create text edit box.
-	 * 
-	 * @param value
-	 * @param tip
-	 * @param width
-	 * @param max_width
-	 * @return
 	 */
 	public static JTextField createInput(String value, String tip, int width,
 			int max_width) {
@@ -278,13 +222,6 @@ public class ComponentFactory {
 
 	/**
 	 * Create text edit box.
-	 * 
-	 * @param value
-	 * @param tip
-	 * @param listener
-	 * @param width
-	 * @param max_width
-	 * @return
 	 */
 	public static JTextField createInput(String value, String tip,
 			ActionListener listener, int width, int max_width) {
@@ -297,12 +234,6 @@ public class ComponentFactory {
 
 	/**
 	 * Create new label.
-	 * 
-	 * @param label
-	 * @param tip
-	 * @param width
-	 * @param max_width
-	 * @return
 	 */
 	public static JLabel createLabel(String label, String tip, int width,
 			int max_width) {
@@ -310,7 +241,6 @@ public class ComponentFactory {
 		if (tip.length() > 0) {
 			tmp.setToolTipText(tip);
 		}
-		// tmp.setAlignmentX(Component.LEFT_ALIGNMENT);
 		if (width > 0) {
 			tmp.setPreferredSize(new Dimension(width, (int) tmp
 					.getPreferredSize().getHeight()));
@@ -320,10 +250,6 @@ public class ComponentFactory {
 		return tmp;
 	}
 
-	/**
-	 * @param object
-	 * @return
-	 */
 	public static JPanel createOnePanel(Component object) {
 		JPanel tmp = new JPanel();
 		tmp.setLayout(ComponentFactory.createBorderLayout(5, 5));
@@ -331,12 +257,6 @@ public class ComponentFactory {
 		return tmp;
 	}
 
-	/**
-	 * @param leftObject
-	 * @param centerObject
-	 * @param rightObject
-	 * @return
-	 */
 	public static JPanel createThreePanel(Component leftObject,
 			Component centerObject, Component rightObject) {
 		JPanel tmp = new JPanel();
@@ -347,11 +267,6 @@ public class ComponentFactory {
 		return tmp;
 	}
 
-	/**
-	 * @param leftObject
-	 * @param centerObject
-	 * @return
-	 */
 	public static JPanel createTwoPanel(Component leftObject,
 			Component centerObject) {
 		JPanel tmp = new JPanel();
@@ -361,11 +276,6 @@ public class ComponentFactory {
 		return tmp;
 	}
 
-	/**
-	 * @param leftObject
-	 * @param centerObject
-	 * @return
-	 */
 	public static JPanel createTwoPanelEq(Component leftObject,
 			Component centerObject) {
 		JPanel tmp = new JPanel();

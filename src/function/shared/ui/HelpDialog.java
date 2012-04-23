@@ -15,7 +15,6 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.ui;
 
 import javax.swing.*;
@@ -63,9 +62,6 @@ public class HelpDialog extends BaseDialog implements ActionListener {
 		pack();
 	}
 
-	/**
-	 * @param e
-	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		setVisible(false);
@@ -73,8 +69,6 @@ public class HelpDialog extends BaseDialog implements ActionListener {
 
 	/**
 	 * Set text in html format.
-	 * 
-	 * @param text
 	 */
 	public void setHtml(String text) {
 		aEditor.setEditorKit(new HTMLEditorKit());
@@ -84,8 +78,6 @@ public class HelpDialog extends BaseDialog implements ActionListener {
 
 	/**
 	 * Set plain text.
-	 * 
-	 * @param text
 	 */
 	public void setText(String text) {
 		aEditor.setText(text);

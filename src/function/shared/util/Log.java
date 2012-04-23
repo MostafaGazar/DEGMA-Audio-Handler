@@ -15,7 +15,6 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.util;
 
 import java.io.BufferedOutputStream;
@@ -65,10 +64,6 @@ public class Log {
 
 	/**
 	 * Add log message.
-	 * 
-	 * @param logLevel
-	 * @param message
-	 * @param add_time
 	 */
 	private void add(int logLevel, String message, boolean add_time) {
 		if (logLevel <= aLogLevel) {
@@ -103,9 +98,6 @@ public class Log {
 
 	/**
 	 * Add log message.
-	 * 
-	 * @param logLevel
-	 * @param message
 	 */
 	public void add(int logLevel, String message) {
 		add(logLevel, message, false);
@@ -113,9 +105,6 @@ public class Log {
 
 	/**
 	 * Add log message with a time stamp first.
-	 * 
-	 * @param logLevel
-	 * @param message
 	 */
 	public void addTime(int logLevel, String message) {
 		add(logLevel, message, true);
@@ -130,8 +119,6 @@ public class Log {
 
 	/**
 	 * Get global log. If it doesn't exist create it. Maximum rows is 1000.
-	 * 
-	 * @return
 	 */
 	public static Log get() {
 		if (aaLog == null) {
@@ -142,8 +129,6 @@ public class Log {
 
 	/**
 	 * Get global log. If it doesn't exist create it. Maximum rows is 1000.
-	 * 
-	 * @return
 	 */
 	public static Log get(String fileName) {
 		if (aaLog == null) {
@@ -154,8 +139,6 @@ public class Log {
 
 	/**
 	 * Add all log rows in one string with newlines between every row.
-	 * 
-	 * @return
 	 */
 	public String getLogMessage() {
 		String message = "";
@@ -168,8 +151,6 @@ public class Log {
 
 	/**
 	 * Set current log level s
-	 * 
-	 * @param level
 	 */
 	public void setLogLevel(int level) {
 		aLogLevel = level;
@@ -177,9 +158,6 @@ public class Log {
 
 	/**
 	 * Print message to screen.
-	 * 
-	 * @param verbose
-	 * @param message
 	 */
 	public void print(int verbose, String message) {
 		if (verbose <= aLogLevel) {
@@ -194,8 +172,6 @@ public class Log {
 
 	/**
 	 * Save log to file.
-	 * 
-	 * @param fileName
 	 */
 	public void save(String fileName) {
 		try {
@@ -211,5 +187,4 @@ public class Log {
 		} catch (IOException e) {
 		}
 	}
-
 }

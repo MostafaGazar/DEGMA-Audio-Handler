@@ -11,9 +11,12 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.border.TitledBorder;
 
-import ui.Messages;
 import util.Constants;
+import view.Messages;
 
+/**
+ * @author Mostafa Gazar, eng.mostafa.gazar@gmail.com
+ */
 public class QualityChooser extends JPanel {
 	private static final long serialVersionUID = 1L;
 
@@ -169,7 +172,7 @@ public class QualityChooser extends JPanel {
 		qualityBtGroup.add(flac);
 
 		qualityBtGroup.add(wav);
-		// //////////////////////
+
 		add(mp3Extreme);
 		add(mp3High);
 		add(mp3Normal);

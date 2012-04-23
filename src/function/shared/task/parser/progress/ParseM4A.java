@@ -15,7 +15,6 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.task.parser.progress;
 
 import java.util.regex.Pattern;
@@ -24,9 +23,7 @@ import java.util.regex.Pattern;
  * Parser for progress reading while reading M4A data.
  */
 public class ParseM4A extends ParserThread {
-	/**
-     *
-     */
+
 	public ParseM4A(boolean toStdout) {
 		super(toStdout);
 		aPattern = Pattern.compile("(\\d+)\\% decoding\\.*");

@@ -15,7 +15,6 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.task.parser.progress;
 
 import java.util.regex.Pattern;
@@ -24,9 +23,7 @@ import java.util.regex.Pattern;
  * Parser for progress reading while reading MP3 data.
  */
 public class ParseMP3 extends ParserThread {
-	/**
-     *
-     */
+
 	public ParseMP3(boolean toStdout) {
 		super(toStdout);
 		aPattern = Pattern.compile("Frame#\\s*(\\d+)/(\\d+)\\.*");

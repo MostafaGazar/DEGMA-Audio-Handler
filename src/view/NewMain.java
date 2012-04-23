@@ -1,7 +1,7 @@
 /**
  * Created at: 11-09-2007
  */
-package ui;
+package view;
 
 
 import java.awt.AWTException;

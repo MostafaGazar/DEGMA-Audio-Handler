@@ -15,9 +15,7 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.thread.process;
-
 
 import java.io.*;
 
@@ -26,7 +24,6 @@ import function.shared.thread.StreamThread;
 import function.shared.util.Log;
 import function.shared.util.ProcessParam;
 import function.shared.util.Progress;
-
 
 /**
  * Process thread that uses other threads for reading from child thread outputs.
@@ -45,10 +42,6 @@ public class ProcessRunner extends BaseThread {
 	protected ProcessParam aWriteParam = null;
 	protected String aWriteFileName = null;
 
-	/**
-	 * @param log
-	 * @param progress
-	 */
 	public ProcessRunner(Log log, Progress progress) {
 		super(log, progress);
 	}
@@ -110,7 +103,6 @@ public class ProcessRunner extends BaseThread {
 
 		if (aReadProcess != null) {
 			try {
-				// aReadProcess.waitFor();
 				aReadProcess.destroy();
 				aExitReadCode = aReadProcess.exitValue();
 			} catch (Exception e) {
@@ -131,8 +123,8 @@ public class ProcessRunner extends BaseThread {
 			}
 		}
 
-		// ! Ugly fix for some bad file descriptor exceptions in StreamThread
-		// under suse 10.0 and java 1.5.05
+		// XXX :: Ugly fix for some bad file descriptor exceptions in StreamThread
+		// under suse 10.0 and java 1.5.05 !
 		if ((b1 || b2) && (aExitReadCode > 0 || aExitWriteCode > 0)) {
 			setFailed(true);
 		}

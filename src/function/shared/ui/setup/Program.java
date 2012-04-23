@@ -15,9 +15,7 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.ui.setup;
-
 
 import javax.swing.*;
 
@@ -25,7 +23,6 @@ import function.shared.ui.Application;
 import function.shared.ui.ComponentFactory;
 import function.shared.ui.setup.BaseSetupPanel;
 import function.shared.util.Pref;
-
 
 import util.Constants;
 
@@ -54,9 +51,6 @@ public class Program extends BaseSetupPanel implements ActionListener {
 	private JButton aBrowseAACDecoder = null;
 	private JButton aBrowseFlacEncoder = null;
 
-	/**
-     *
-     */
 	public Program() {
 		aScroll = true;
 
@@ -124,8 +118,6 @@ public class Program extends BaseSetupPanel implements ActionListener {
 
 	/**
 	 * Browse for file.
-	 * 
-	 * @param actionEvent
 	 */
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {

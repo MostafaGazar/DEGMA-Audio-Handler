@@ -27,10 +27,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 
-import ui.Messages;
-import ui.NewMain;
-import ui.WaitingDialog;
 import util.ConstantMethods;
+import view.Messages;
+import view.NewMain;
+import view.WaitingDialog;
 import view.fileChooser.AudioVideoFilter;
 import view.fileChooser.ImageFileView;
 

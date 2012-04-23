@@ -15,16 +15,13 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.ui;
-
 
 import javax.swing.*;
 
 import function.shared.thread.BaseThread;
 import function.shared.util.Progress;
 import function.shared.util.StopWatch;
-
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -35,6 +32,8 @@ import java.util.Vector;
 
 /**
  * A progress dialog object.
+ * 
+ * @edited Mostafa Gazar, eng.mostafa.gazar@gmail.com
  */
 public class ProgressDialog extends BaseDialog implements ActionListener {
 	/**
@@ -180,8 +179,6 @@ public class ProgressDialog extends BaseDialog implements ActionListener {
 
 	/**
 	 * Cancel work thread and close dialog.
-	 * 
-	 * @param actionEvent
 	 */
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
@@ -201,10 +198,6 @@ public class ProgressDialog extends BaseDialog implements ActionListener {
 
 		dispose();
 		setVisible(false);
-
-		/*
-		 * if (aApp != null) { aApp.setTitle(null); }
-		 */
 	}
 
 	/**
@@ -246,15 +239,6 @@ public class ProgressDialog extends BaseDialog implements ActionListener {
 		return aHasFailed;
 	}
 
-	// /**
-	// * Set application object for adding total % numer to the title.
-	// *
-	// * @param app
-	// */
-	// public void setApplication(Application app) {
-	// aApp = app;
-	// }
-
 	/**
 	 * Set progress value.
 	 * 
@@ -286,9 +270,6 @@ public class ProgressDialog extends BaseDialog implements ActionListener {
 				aMajorProgress.setStringPainted(true);
 			}
 		});
-		// aMajorProgress.setValue(percent);
-		// aMajorProgress.setString(text);
-		// aMajorProgress.setStringPainted(true);
 	}
 
 	/**
@@ -299,15 +280,8 @@ public class ProgressDialog extends BaseDialog implements ActionListener {
 	 */
 	private void setTotalProgress(int percent) {
 		if (percent > 0) {
-			/*
-			 * if (aApp != null) { aApp.setTitle(String.format(" - %d%%",
-			 * percent)); }
-			 */
 			setTitle(String.format("%s - %d%%", aTitle, percent));
 		} else {
-			/*
-			 * if (aApp != null) { aApp.setTitle(""); }
-			 */
 			setTitle(String.format("%s", aTitle));
 		}
 	}

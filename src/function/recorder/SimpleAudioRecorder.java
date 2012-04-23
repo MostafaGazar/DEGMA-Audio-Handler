@@ -1,22 +1,3 @@
-package function.recorder;
-
-import java.io.File;
-import java.io.IOException;
-
-import javax.sound.sampled.AudioFileFormat;
-import javax.sound.sampled.AudioFormat;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.DataLine;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.TargetDataLine;
-
-/*
- *	SimpleAudioRecorder.java
- *
- *	This file is part of jsresources.org
- */
-
 /*
  * Copyright (c) 1999 - 2003 by Matthias Pfisterer
  * All rights reserved.
@@ -44,50 +25,20 @@ import javax.sound.sampled.TargetDataLine;
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+package function.recorder;
 
-/*
- |&lt;---            this code is formatted to fit into 80 columns             ---&gt;|
- */
+import java.io.File;
+import java.io.IOException;
 
-/**
- * &lt;titleabbrev&gt;SimpleAudioRecorder&lt;/titleabbrev&gt;
- * &lt;title&gt;Recording to an audio file (simple version)&lt;/title&gt;
- * 
- * &lt;formalpara&gt;&lt;title&gt;Purpose&lt;/title&gt; &lt;para&gt;Records
- * audio data and stores it in a file. The data is recorded in CD quality (44.1
- * kHz, 16 bit linear, stereo) and stored in a
- * &lt;filename&gt;.wav&lt;/filename&gt; file.&lt;/para&gt;&lt;/formalpara&gt;
- * 
- * &lt;formalpara&gt;&lt;title&gt;Usage&lt;/title&gt; &lt;para&gt;
- * &lt;cmdsynopsis&gt; &lt;command&gt;java SimpleAudioRecorder&lt;/command&gt;
- * &lt;arg choice="plain"&gt;&lt;option&gt;-h&lt;/option&gt;&lt;/arg&gt;
- * &lt;/cmdsynopsis&gt; &lt;cmdsynopsis&gt; &lt;command&gt;java
- * SimpleAudioRecorder&lt;/command&gt; &lt;arg
- * choice="plain"&gt;&lt;replaceable&
- * gt;audiofile&lt;/replaceable&gt;&lt;/arg&gt; &lt;/cmdsynopsis&gt;
- * &lt;/para&gt;&lt;/formalpara&gt;
- * 
- * &lt;formalpara&gt;&lt;title&gt;Parameters&lt;/title&gt; &lt;variablelist&gt;
- * &lt;varlistentry&gt; &lt;term&gt;&lt;option&gt;-h&lt;/option&gt;&lt;/term&gt;
- * &lt;listitem&gt;&lt;para&gt;print usage information, then
- * exit&lt;/para&gt;&lt;/listitem&gt; &lt;/varlistentry&gt; &lt;varlistentry&gt;
- * &lt;term&gt;&lt;option&gt;&lt;replaceable&gt;audiofile&lt;/replaceable&gt;&lt
- * ;/option&gt;&lt;/term&gt; &lt;listitem&gt;&lt;para&gt;the file name of the
- * audio file that should be produced from the recorded
- * data&lt;/para&gt;&lt;/listitem&gt; &lt;/varlistentry&gt;
- * &lt;/variablelist&gt; &lt;/formalpara&gt;
- * 
- * &lt;formalpara&gt;&lt;title&gt;Bugs, limitations&lt;/title&gt; &lt;para&gt;
- * You cannot select audio formats and the audio file type on the command line.
- * See AudioRecorder for a version that has more advanced options. Due to a bug
- * in the Sun jdk1.3/1.4, this program does not work with it.
- * &lt;/para&gt;&lt;/formalpara&gt;
- * 
- * &lt;formalpara&gt;&lt;title&gt;Source code&lt;/title&gt; &lt;para&gt;
- * &lt;ulink
- * url="SimpleAudioRecorder.java.html"&gt;SimpleAudioRecorder.java&lt;/ulink&gt;
- * &lt;/para&gt; &lt;/formalpara&gt;
- */
+import javax.sound.sampled.AudioFileFormat;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.TargetDataLine;
+
+
 public class SimpleAudioRecorder extends Thread {
 	private TargetDataLine m_line;
 	private AudioFileFormat.Type m_targetType;
@@ -264,5 +215,3 @@ public class SimpleAudioRecorder extends Thread {
 		System.out.println(strMessage);
 	}
 }
-
-/*** SimpleAudioRecorder.java ***/

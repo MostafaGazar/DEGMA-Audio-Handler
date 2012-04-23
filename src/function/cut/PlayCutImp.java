@@ -3,7 +3,6 @@
  */
 package function.cut;
 
-
 import java.util.Vector;
 
 import javax.media.MediaLocator;
@@ -45,25 +44,21 @@ public class PlayCutImp implements IPLayCut {
 
 	@Override
 	public String doCut() {
-
 		return null;
 	}
 
 	@Override
 	public void setInputPath(String inputPath) {
 		inputURL = inputPath;
-		// inputURL = "file:/"+inputPath;
 	}
 
 	@Override
 	public void setOutputPath(String outputPath) {
 		outputURL = outputPath;
-		// outputURL = "file:/"+outputPath;
 	}
 
 	@Override
 	public void setFrameMode(boolean frameMode) {
 
 	}
-
 }

@@ -2,6 +2,10 @@ package util;
 
 import java.io.File;
 
+/**
+ * 
+ * @author Mostafa Gazar, eng.mostafa.gazar@gmail.com
+ */
 public class ConstantMethods {
 
 	public static String getExtension(File f) {

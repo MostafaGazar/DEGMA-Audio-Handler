@@ -15,9 +15,7 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.shared.task.parser;
-
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -26,7 +24,6 @@ import function.shared.music.Album;
 import function.shared.thread.StreamThread;
 import function.shared.util.Log;
 import function.shared.util.Progress;
-
 
 /**
  * Parse the content info from the cdda2aw program and set album information.
@@ -45,10 +42,6 @@ public class ContentsParserThread extends StreamThread {
 
 	/**
 	 * Create parser and set work message.
-	 * 
-	 * @param log
-	 * @param progress
-	 * @throws Exception
 	 */
 	public ContentsParserThread(Log log, Progress progress) throws Exception {
 		super(log, progress, ReadType.READ_STDERR_LINES, false);
@@ -110,9 +103,6 @@ public class ContentsParserThread extends StreamThread {
 		addLog(1, line);
 	}
 
-	/**
-	 * @return
-	 */
 	@Override
 	public String toString() {
 		if (aAlbum != null) {

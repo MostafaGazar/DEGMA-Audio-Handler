@@ -15,9 +15,7 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.rip;
-
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -34,20 +32,19 @@ import function.shared.music.Album;
 import function.shared.ui.QualityChooser;
 import function.shared.ui.StatusBar;
 
-
-import ui.Messages;
-import ui.NewMain;
+import view.Messages;
+import view.NewMain;
 
 /**
- * JRipper application class. Create main gui stuff here.
+ * JRipper application class. Create main GUI stuff here.
+ * 
+ * @edited Mostafa Gazar, eng.mostafa.gazar@gmail.com
  */
 public class RipPanel extends JPanel {
 	private static final long serialVersionUID = 666L;
-	// public MyMenuPanel aMenuPanel = null;
 
 	public JPanel aMenuPanel = new JPanel(new BorderLayout());
 	public JButton loadBt = null;
-	// public JComboBox qualityCbx = null;
 	public QualityChooser qualityCbx = null;
 	public JButton convertBt = null;
 
@@ -59,15 +56,10 @@ public class RipPanel extends JPanel {
 	 */
 	public RipPanel() {
 		super();
-		// aMenuPanel = new MyMenuPanel();//JPanel(new BorderLayout());
 		loadBt = new JButton(Messages.getString("Constants.loadCd"),
 				new ImageIcon(NewMain.class.getResource(Messages
 						.getString("Constants.browseIcon"))));
 
-		// qualityCbx =
-		// ComponentFactory.createCombo(Constants.ENCODER_NAME_DEFAULTS,
-		// Pref.getPref(Constants.ENCODER_KEY, Constants.ENCODER_DEFAULT),
-		// "Select encoder type.", 100, 25);
 		qualityCbx = new QualityChooser();
 		convertBt = new JButton(Messages.getString("Constants.rip"),
 				new ImageIcon(NewMain.class.getResource(Messages
@@ -94,7 +86,7 @@ public class RipPanel extends JPanel {
 				if (Rip.get().getWin().getTrackPanel().getAlbumPanel()
 						.copyAlbum(album)) {
 					RipperTask task = new RipperTask(album, qualityCbx
-							.getSelected());// getSelectedIndex());
+							.getSelected());
 					task.doTask();
 				}
 			}
@@ -103,7 +95,6 @@ public class RipPanel extends JPanel {
 		aMenuPanel.setPreferredSize(new Dimension(145, 0));
 		aMenuPanel.add(qualityCbx, BorderLayout.NORTH);
 		aMenuPanel.add(convertBt, BorderLayout.CENTER);
-		// aMenuPanel.add(loadBt, BorderLayout.SOUTH);
 
 		add(loadBt, BorderLayout.NORTH);
 		add(aTrackPanel, BorderLayout.CENTER);

@@ -15,9 +15,7 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package function.rip.task;
-
 
 import java.awt.*;
 import java.util.Vector;
@@ -33,14 +31,15 @@ import function.shared.util.Log;
 import function.shared.util.Progress;
 import function.shared.util.StopWatch;
 
-
-import ui.Messages;
-import ui.NewMain;
 import util.Constants;
+import view.Messages;
+import view.NewMain;
 
 /**
  * The audio converter task.<br>
- * Ripp cd or transcode audio files.<br>
+ * Ripp cd or transcode audio files.
+ * 
+ * @edited Mostafa Gazar, eng.mostafa.gazar@gmail.com
  */
 public class RipperTask {
 	private Album aAlbum;
@@ -68,12 +67,10 @@ public class RipperTask {
 		String message = "";
 
 		dlg.showMajorProgress();
-		// dlg.centerOnApplication();
 		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
 		dlg.setLocation((d.width / 2) - (dlg.getWidth() / 2), (d.height / 2)
 				- (dlg.getHeight() / 2));
 
-		// dlg.setApplication(Application.get());
 		Rip.get()
 				.getWin()
 				.getStatusBar()
@@ -128,8 +125,8 @@ public class RipperTask {
 
 			}
 
-			dlg.show(threads); // Run all threads one by one in the progress
-								// dialog
+			// Run all threads one by one in the progress dialog.
+			dlg.show(threads); 
 
 			if (dlg.hasBeenStopped()) {
 				throw new Exception(Messages.getString("Constants.ripMessage4"));
@@ -153,7 +150,6 @@ public class RipperTask {
 				HelpDialog showLog = new HelpDialog(NewMain.frame,
 						NewMain.PROGRAM_NAME + " Log", "&Close");
 				showLog.setText(Log.get().getLogMessage());
-				// showLog.centerOnApplication();
 				d = Toolkit.getDefaultToolkit().getScreenSize();
 				showLog.setLocation((d.width / 2) - (showLog.getWidth() / 2),
 						(d.height / 2) - (showLog.getHeight() / 2));
