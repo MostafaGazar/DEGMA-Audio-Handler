@@ -15,6 +15,6 @@ Features:
 
 Screens:
 
-    1- ![Play & Cut](https://github.com/MostafaGazar/DEGMA-Audio-Handler/raw/master/screens/0.6%201.jpg "Play & Cut")
-    2- ![Convertor](https://github.com/MostafaGazar/DEGMA-Audio-Handler/raw/master/screens/0.6%202.jpg "Convertor")
-    3- ![Settings-themes](https://github.com/MostafaGazar/DEGMA-Audio-Handler/raw/master/screens/0.6%203.jpg "Settings-themes")
+![Play & Cut](https://github.com/MostafaGazar/DEGMA-Audio-Handler/raw/master/screens/0.6%201.jpg "Play & Cut")
+![Convertor](https://github.com/MostafaGazar/DEGMA-Audio-Handler/raw/master/screens/0.6%202.jpg "Convertor")
+![Settings-themes](https://github.com/MostafaGazar/DEGMA-Audio-Handler/raw/master/screens/0.6%203.jpg "Settings-themes")
