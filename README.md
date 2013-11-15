@@ -1,7 +1,6 @@
 Downloads
 ============
 http://degma-audio.googlecode.com/files/DEGMA%20Audio%20Handler%200.6%20BETA%20Setup.exe
-
 Features
 ============
     1- Cut multi pieces from the following supported formats to one file:
@@ -13,9 +12,11 @@ Features
     5- Rip CDs to: MP3, OGG, ACC(MP4, M4A), FLAC, wav.
     6- Play the following audio types: AIFF, AU, AVI, GSM, MIDI, MP2, MP3, QT, RMF, WAV.
     7- Many themes to choose from.
-
 Screens
 ============
 ![Play & Cut](https://github.com/MostafaGazar/DEGMA-Audio-Handler/raw/master/screens/0.6%201.jpg "Play & Cut")
 ![Convertor](https://github.com/MostafaGazar/DEGMA-Audio-Handler/raw/master/screens/0.6%202.jpg "Convertor")
 ![Settings-themes](https://github.com/MostafaGazar/DEGMA-Audio-Handler/raw/master/screens/0.6%203.jpg "Settings-themes")
+Developed by
+============
+* Mostafa Gazar - <eng.mostafa.gazar@gmail.com>
